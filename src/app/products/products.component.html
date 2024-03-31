@@ -1,39 +1,50 @@
 <div class="p-3">
   <div class="card">
     <div class="card-body">
-      <div class="card-body">
-        <input type="text" [(ngModel)]="keyword">
-        <button (click)="SearchProduct()" class="btn btn-outline-success">
-          <i class="bi bi-search"></i>
-        </button>
-      </div>
-      <table class="table">
-        <thead>
-        <tr>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Checked</th>
-        </tr>
-
-        </thead>
-        <tbody>
-        <tr *ngFor="let p of products">
-
-          <td>{{ p.name }}</td>
-          <td>{{ p.price }}</td>
-          <td>
-            <button (click)="handleCheckProduct(p)"
-                    class="btn btn-outline-success">
-              <i [class]="p.checked?'bi bi-check':'bi bi-circle'"></i>
-            </button>
-          </td>
-          <td>
-            <button (click)="handleDelete(p)" class="btn btn-outline-danger">
-              <i class="bi bi-trash"></i>
-            </button>
-          </td>
-        </tbody>
-      </table>
+      <input type="text" [(ngModel)]="keyword">
+      <button (click)="getProduct()" class="btn btn-outline-success">
+        <i class="bi bi-search"></i>
+      </button>
     </div>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Checked</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let p of products">
+        <td>{{ p.name }}</td>
+        <td>{{ p.price }}</td>
+        <td>
+          <button (click)="handleCheckProduct(p)" class="btn btn-outline-success">
+            <i [ngClass]="p.checked ? 'bi bi-check' : 'bi bi-circle'"></i>
+          </button>
+        </td>
+        <td>
+          <button (click)="handleDelete(p)" class="btn btn-outline-danger">
+            <i class="bi bi-trash"></i>
+          </button>
+        </td>
+        <td>
+          <button (click)="handleEdit(p)" class="btn btn-outline-success">
+            <i class="bi bi-pencil"></i>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <ul class="nav nav-pills">
+      <li *ngFor="let page of [].constructor(this.TotalPages); let i=index">
+        <button (click)="handleGoPage(i+1)"
+                [ngClass]="currentPage==i+1?'btn btn-success m-1':'btn btn-outline-success m-1'">
+          {{i+1}}
+        </button>
+      </li>
+    </ul>
   </div>
 </div>
+
+

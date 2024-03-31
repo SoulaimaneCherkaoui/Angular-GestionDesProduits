@@ -3,10 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import {NewProductComponent} from "./new-product/new-product.component";
 import {ProductsComponent} from "./products/products.component";
 import {HomeComponent} from "./home/home.component";
+import {EditProductComponent} from "./edit-product/edit-product.component";
 
 const routes: Routes = [{path: "home",component:HomeComponent},
   {path: "products",component:ProductsComponent},
-  {path: "newProduct",component:NewProductComponent}];
+  {path: "newProduct",component:NewProductComponent},
+  {path: "editProduct/:id",component:EditProductComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

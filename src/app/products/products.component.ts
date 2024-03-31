@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {Product} from "../../../Models/product.model";
 import {ProductService} from "../services/product.service";
 import {Observable} from "rxjs";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-products',
@@ -10,8 +11,12 @@ import {Observable} from "rxjs";
 })
 export class ProductsComponent {
   products : Array<Product>=[];
+  TotalPages : number=0;
+  PageSize:number=3;
+  currentPage:number=1;
   public keyword : string = "";
-  constructor(private ps:ProductService) {
+  constructor(private ps:ProductService,
+              private router:Router) {
 
   }
 
@@ -20,9 +25,15 @@ export class ProductsComponent {
   }
   getProduct(){
     //importer les donner du serveur
-    this.ps.getProducts().subscribe({
-      next:data =>{ //affecter l'observable au liste vide :
-        this.products=data},
+    this.ps.getProducts(this.keyword,this.currentPage,this.PageSize).subscribe({
+      next:(resp) =>{ //affecter l'observable au liste vide :
+        this.products=resp.body as Product[];
+        let totalProducts:number = parseInt(resp.headers.get('x-total-count')!);
+        this.TotalPages = Math.floor(totalProducts / this.PageSize);
+        if(totalProducts%this.PageSize!=0){
+         this.TotalPages=this.TotalPages+1;
+        }
+      },
       error:err => {
         console.log(err)
       }
@@ -52,15 +63,16 @@ export class ProductsComponent {
 
   }
 
-  SearchProduct() {
-this.ps.SearchProducts(this.keyword).subscribe({
-  next: value => {
-    this.products=value;
-    console.log(value);
-  },
-  error: err => {
-    console.error('Une erreur s\'est produite :', err);
+
+
+  handleGoPage(page: number) {
+    this.currentPage=page;
+    this.getProduct();
+
   }
-})
+
+  handleEdit(p: Product) {
+this.router.navigateByUrl(`/editProduct/${p.id}`)
+
   }
 }

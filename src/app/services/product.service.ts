@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {ApplicationConfig, Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Product} from "../../../Models/product.model";
@@ -39,3 +39,4 @@ export class ProductService {
 
   }
 }
+

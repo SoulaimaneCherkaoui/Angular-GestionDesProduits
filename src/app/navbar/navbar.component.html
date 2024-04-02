@@ -1,0 +1,39 @@
+
+  <nav class="m-1 p-1 navbar navbar-dark bg-dark">
+    <ul class="nav nav-pills d-flex justify-content-center">
+      <li *ngFor="let action of actions">
+        <button
+          (click)="currentAction=action.route"
+          routerLink="/{{action.route}}"
+          [ngClass]="(action.route===currentAction)?
+          'btn btn-success ms-1'
+          :'btn btn-outline-success ms-1'">
+          {{action.title}}
+          <i class="bi bi-{{action.icon}}"></i>
+        </button>
+      </li>
+      <li *ngIf="ls.isLoading$|async">
+        <div class="spinner-border text-info m-1" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </li>
+      <li *ngIf="appState.productsState.status=='ERROR'">
+        <div class="bg-danger bg-opacity-50 p-2 ms-1 border border-success text-light">{{appState.productsState.errorMessage}}</div>
+      </li>
+    </ul>
+
+    <ul class="nav nav-pills">
+      <li *ngIf="this.appState.authState.isAuthenticated">
+        <span class="p-1 m-1 text-light">{{appState.authState.username}}</span>
+        <button (click)="handleLogout()" class="btn  btn-outline-success">
+          <i class="bi bi-door-closed-fill text-light"></i>
+        </button>
+      </li>
+      <li *ngIf="!this.appState.authState.isAuthenticated">
+        <button (click)="handleLogin()" class="btn  btn-outline-success">
+          <i class="bi bi-door-open-fill text-light"></i>
+        </button>
+      </li>
+    </ul>
+  </nav>
+

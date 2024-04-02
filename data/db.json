@@ -1,18 +1,6 @@
 {
   "products": [
     {
-      "id": "6",
-      "name": "Product 555",
-      "price": 600,
-      "checked": true
-    },
-    {
-      "id": "11",
-      "name": "Nintando",
-      "price": 122,
-      "checked": false
-    },
-    {
       "name": "Soulaimane Cherkoaui",
       "price": 1000,
       "checked": true,
@@ -27,7 +15,7 @@
     {
       "name": "test",
       "price": 0,
-      "checked": false,
+      "checked": true,
       "id": "hWYFkGc"
     },
     {
@@ -39,20 +27,14 @@
     {
       "name": "test",
       "price": 0,
-      "checked": false,
+      "checked": true,
       "id": "QJuL0p1"
     },
     {
       "name": "test",
       "price": 0,
-      "checked": false,
+      "checked": true,
       "id": "9pFqakJ"
-    },
-    {
-      "name": "test",
-      "price": 0,
-      "checked": false,
-      "id": "aZmQmwX"
     },
     {
       "name": "test",
@@ -63,13 +45,7 @@
     {
       "name": "test",
       "price": 0,
-      "checked": false,
-      "id": "o6Q_QZR"
-    },
-    {
-      "name": "test",
-      "price": 0,
-      "checked": false,
+      "checked": true,
       "id": "hEpglvz"
     },
     {
@@ -79,22 +55,10 @@
       "id": "K6LJbi9"
     },
     {
-      "name": "test",
-      "price": 0,
-      "checked": false,
-      "id": "vf3oFyq"
-    },
-    {
-      "name": "test",
-      "price": 0,
-      "checked": false,
-      "id": "Zqsx6sT"
-    },
-    {
-      "name": "test",
-      "price": 0,
-      "checked": false,
-      "id": "s1Xukvh"
+      "id": "s1Xukvh",
+      "name": "test2",
+      "price": 1000,
+      "checked": false
     },
     {
       "name": "test",
@@ -105,25 +69,19 @@
     {
       "name": "test",
       "price": 0,
-      "checked": false,
+      "checked": true,
       "id": "oZvfZvv"
     },
     {
       "name": "test",
       "price": 0,
-      "checked": false,
+      "checked": true,
       "id": "LldkbCt"
     },
     {
       "name": "test",
       "price": 0,
-      "checked": false,
-      "id": "yYeBD2B"
-    },
-    {
-      "name": "test",
-      "price": 0,
-      "checked": false,
+      "checked": true,
       "id": "--7dvAB"
     },
     {
@@ -135,13 +93,7 @@
     {
       "name": "test",
       "price": 0,
-      "checked": false,
-      "id": "SWFCBT8"
-    },
-    {
-      "name": "test",
-      "price": 0,
-      "checked": false,
+      "checked": true,
       "id": "Paoo6QS"
     },
     {
@@ -169,10 +121,22 @@
       "id": "E85vYEb"
     },
     {
+      "id": "CdBMq2C",
       "name": "test",
-      "price": 0,
-      "checked": true,
-      "id": "CdBMq2C"
+      "price": true,
+      "checked": true
+    }
+  ],
+  "users": [
+    {
+      "id": "user1",
+      "password": "MTIzNA==",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyMSIsIm5hbWUiOiJVc2VyMSIsImVtYWlsIjoidXNlcjFAZ21haWwuY29tIiwiaWF0IjoxNTE2MjM5MDIyLCJyb2xlcyI6WyJVU0VSIl19.athVfrz8HqlhFy7opZyvFuLQgN7FYGUngNQEPbaR9wE"
+    },
+    {
+      "id": "admin",
+      "password": "MTIzNA==",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsIm5hbWUiOiJNb2hhbWVkIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE1MTYyMzkwMjIsInJvbGVzIjpbIlVTRVIiLCJBRE1JTiJdfQ.7FTLbjuAtqtfeKNLXeWvPmKQoD01miwQ51xzK3mWksg"
     }
   ]
 }

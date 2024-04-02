@@ -1,7 +1,7 @@
 <div class="p-3">
   <div class="card">
     <div class="card-body">
-      <input type="text" [(ngModel)]="keyword">
+      <input type="text" [(ngModel)]="appState.productsState.keyword">
       <button (click)="getProduct()" class="btn btn-outline-success">
         <i class="bi bi-search"></i>
       </button>
@@ -15,7 +15,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let p of products">
+      <tr *ngFor="let p of appState.productsState.products">
         <td>{{ p.name }}</td>
         <td>{{ p.price }}</td>
         <td>
@@ -23,7 +23,7 @@
             <i [ngClass]="p.checked ? 'bi bi-check' : 'bi bi-circle'"></i>
           </button>
         </td>
-        <td>
+        <td *ngIf="appState.authState.roles.includes('ADMIN')">
           <button (click)="handleDelete(p)" class="btn btn-outline-danger">
             <i class="bi bi-trash"></i>
           </button>
@@ -37,9 +37,9 @@
       </tbody>
     </table>
     <ul class="nav nav-pills">
-      <li *ngFor="let page of [].constructor(this.TotalPages); let i=index">
+      <li *ngFor="let page of [].constructor(appState.productsState.TotalPages); let i=index">
         <button (click)="handleGoPage(i+1)"
-                [ngClass]="currentPage==i+1?'btn btn-success m-1':'btn btn-outline-success m-1'">
+                [ngClass]="appState.productsState.currentPage==i+1?'btn btn-success m-1':'btn btn-outline-success m-1'">
           {{i+1}}
         </button>
       </li>
